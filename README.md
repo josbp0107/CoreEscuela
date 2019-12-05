@@ -1,1 +1,1 @@
-# Learning-C#-NET-Core
+# Learning C# .Net Core
