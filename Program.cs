@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using CoreEscuela.Entidades;
+using CoreEscuela.Util;
 using static System.Console;
 
 namespace CoreEscuela
@@ -12,9 +13,9 @@ namespace CoreEscuela
            var engine = new EscuelaEngine();
            engine.Inicializar();
 
-           WriteLine("==========");
+            Printer.Beep(10000,cantidad:10);
            ImprimirCursosEscuelas(engine.Escuela);
-           
+
         }
 
         // private static bool Predicado(Curso obj)
@@ -24,9 +25,7 @@ namespace CoreEscuela
 
         private static void ImprimirCursosEscuelas(Escuela escuela)
         {
-            WriteLine("====================");
-            WriteLine("Cursos de la escuela");
-            WriteLine("====================");
+           Printer.DibujarTitulo("BIENVENIDO A LA ESCUELA");
 
             if (escuela?.Cursos != null)
             {
