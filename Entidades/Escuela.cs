@@ -30,10 +30,18 @@ namespace CoreEscuela.Entidades
 
         // Otra manera de crear constructor de una clase
         public Escuela(string nombre, int año) => (Nombre, AñoDeCreacion) = (nombre, año); //Igualación por tuplas
-
+        
+        public Escuela(string nombre, int año, TiposEscuela tipos, string pais="", string ciudad="")
+        {   
+            (Nombre, AñoDeCreacion) = (nombre, año);
+            Pais = pais;
+            Ciudad = ciudad;
+        }
+        
+        
         public override string ToString() //Metodo para sobreescribir el objeto Escuela a String
         {
-            return $"Nombre: {Nombre}, Tipo: {TipoEscuela} \n Pais: {Pais}, Ciudad: {Ciudad}";
+            return $"Nombre: {Nombre}, Tipo: {TipoEscuela} {System.Environment.NewLine} Pais: {Pais}, Ciudad: {Ciudad}";
         }
            
     }
