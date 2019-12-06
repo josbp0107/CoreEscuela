@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CoreEscuela.Entidades;
 using static System.Console;
 
@@ -10,11 +11,14 @@ namespace CoreEscuela
         {
             var escuela = new Escuela("Liceo", 2010, TiposEscuela.Primaria, pais: "Colombia", ciudad: "Sincelejo");
 
-            escuela.Cursos = new Curso[] {
-                    new Curso() {Nombre = "101"},
-                    new Curso() { Nombre = "201" },
-                    new Curso { Nombre = "301" }
+            escuela.Cursos = new List<Curso>(){
+                    new Curso() {Nombre = "101", Jornada= TiposJornada.Mañana},
+                    new Curso() { Nombre = "201", Jornada= TiposJornada.Mañana },
+                    new Curso { Nombre = "301", Jornada= TiposJornada.Mañana }
             };
+
+            escuela.Cursos.Add(new Curso() { Nombre = "102", Jornada = TiposJornada.Tarde });
+            escuela.Cursos.Add(new Curso() { Nombre = "202", Jornada = TiposJornada.Tarde });
 
             ImprimirCursosEscuelas(escuela);
 
