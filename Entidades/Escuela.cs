@@ -16,6 +16,8 @@ namespace CoreEscuela.Entidades
         public string Ciudad { get; set; }
         public TiposEscuela TipoEscuela{ get;set; }
 
+        public Curso[] Cursos { get; set; }
+
         /*
             Metodo constructor de la clase Escuela 
             @Param string nombre atributo de la entidad Escuela 

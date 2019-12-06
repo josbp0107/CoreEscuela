@@ -1,5 +1,6 @@
 ﻿using System;
 using CoreEscuela.Entidades;
+using static System.Console;
 
 namespace CoreEscuela
 {
@@ -7,36 +8,39 @@ namespace CoreEscuela
     {
         static void Main(string[] args)
         {
-            var arregloCursos = new Curso[3];
-            
-            var escuela = new Escuela("Liceo", 2010, TiposEscuela.Primaria, pais:"Colombia", ciudad:"Sincelejo");
+            var escuela = new Escuela("Liceo", 2010, TiposEscuela.Primaria, pais: "Colombia", ciudad: "Sincelejo");
 
-            arregloCursos[0]  = new Curso()
-            {
-                Nombre = "101"
-            };
-            var curso2 = new Curso()
-            {
-                Nombre = "201"
-            };
-            arregloCursos[1] = curso2;
-            
-            arregloCursos[2] = new Curso
-            {
-                Nombre = "301"
+            escuela.Cursos = new Curso[] {
+                    new Curso() {Nombre = "101"},
+                    new Curso() { Nombre = "201" },
+                    new Curso { Nombre = "301" }
             };
 
-            Console.WriteLine(escuela);
-            System.Console.WriteLine("##############");
-           
-           ImprimirCursosForEach(arregloCursos);
+            ImprimirCursosEscuelas(escuela);
+
+        }
+
+        private static void ImprimirCursosEscuelas(Escuela escuela)
+        {
+            WriteLine("====================");
+            WriteLine("Cursos de la escuela");
+            WriteLine("====================");
+
+            if (escuela?.Cursos != null)
+            {
+                foreach (var curso in escuela.Cursos)
+                {
+                    WriteLine($"Nombre {curso.Nombre}, Id {curso.UniqueId}");
+                }
+            }
+
         }
 
         private static void ImprimirCursos(Curso[] arregloCursos)
         {
-        
-            int contador=0;
-            while(contador < arregloCursos.Length)
+
+            int contador = 0;
+            while (contador < arregloCursos.Length)
             {
                 Console.WriteLine($"Nombre {arregloCursos[contador].Nombre}, Id {arregloCursos[contador].UniqueId}");
                 contador++;
@@ -45,7 +49,7 @@ namespace CoreEscuela
 
         private static void ImprimirCursosDoWhile(Curso[] arregloCursos)
         {
-            int contador=0;
+            int contador = 0;
             do
             {
                 Console.WriteLine($"Nombre {arregloCursos[contador].Nombre}, Id {arregloCursos[contador].UniqueId}");
@@ -58,7 +62,7 @@ namespace CoreEscuela
             for (int i = 0; i < arregloCursos.Length; i++)
             {
                 Console.WriteLine($"Nombre {arregloCursos[i].Nombre}, Id {arregloCursos[i].UniqueId}");
-            }    
+            }
         }
 
         private static void ImprimirCursosForEach(Curso[] arregloCursos)
@@ -66,7 +70,7 @@ namespace CoreEscuela
             foreach (var curso in arregloCursos)
             {
                 Console.WriteLine($"Nombre {curso.Nombre}, Id {curso.UniqueId}");
-            } 
+            }
         }
     }
 }
