@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using CoreEscuela.Entidades;
+﻿using CoreEscuela.Entidades;
 using CoreEscuela.Util;
 using static System.Console;
 
